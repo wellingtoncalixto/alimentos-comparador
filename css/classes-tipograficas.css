@@ -1,0 +1,80 @@
+/* Classes Tipograficas */
+.display-1 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-display-1);
+  line-height: var(--line-heigth-display-1);
+}
+
+.display-2 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-display-2);
+  line-height: var(--line-heigth-display-2);
+}
+
+.heading-1 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-heading-1);
+  line-height: var(--line-heigth-heading-1);
+}
+
+.heading-2 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-heading-2);
+  line-height: var(--line-heigth-heading-2);
+}
+
+.heading-3-kanit {
+  font-family: var(--font-family);
+  font-size: var(--font-size-heading-3);
+  line-height: var(--line-heigth-heading-3);
+}
+
+.heading-3-jetbrains {
+  font-family: var(--font-family);
+  font-size: var(--font-size-heading-3);
+  line-height: var(--line-heigth-heading-3);
+}
+
+.body-1 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body-1);
+  line-height: var(--line-heigth-bo--font-size-body-1);
+}
+
+.body-2 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body-2);
+  line-height: var(--line-heigth-bo--font-size-body-2);
+}
+
+.cta-medium {
+  font-family: var(--font-family);
+  font-size: var(--font-size-cta-medium);
+}
+
+.cta-small {
+  font-family: var(--font-family);
+  font-size: var(--font-size-cta-small);
+}
+
+.label-1 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-label-1);
+}
+
+.label-2 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-label-2);
+}
+
+.small-label-captalize {
+  font-family: var(--font-family);
+  font-size: var(--font-size-small-label);
+  text-transform: capitalize;
+}
+
+.small-label-upercase {
+  font-family: var(--font-family);
+  font-size: var(--font-size-small-label);
+  text-transform: uppercase;
+}

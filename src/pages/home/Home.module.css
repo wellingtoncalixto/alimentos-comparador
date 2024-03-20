@@ -1,0 +1,89 @@
+.homeContainer {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/background-home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  gap: var(--global-space-32);
+  background-color: var(--global-color-white);
+  padding: var(--global-space-24);
+  width: 80%;
+  border-radius: var(--global-space-12);
+  padding: var(--global-space-24);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.75);
+}
+
+.homeTitle {
+  text-align: center;
+  font-size: 300%;
+  letter-spacing: 2px;
+  color: var(--global-color-black);
+}
+
+.homeContainerCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--global-space-20);
+  width: 100%;
+}
+
+.homeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--global-space-20);
+  font-size: 150%;
+  font-weight: var(--font-weight-bold);
+  height: 200px;
+  max-height: 200px;
+  padding: var(--global-space-12) var(--global-space-24);
+  background-color: var(--global-color-g7);
+  text-decoration: none;
+  color: var(--global-color-white);
+  border-radius: var(--global-space-12);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.5s;
+}
+
+.homeCard:hover {
+  background-color: var(--global-color-g3);
+  color: var(--global-color-g7);
+}
+
+.icon {
+  width: var(--global-space-32);
+  height: var(--global-space-32);
+}
+
+.icon path {
+  stroke: var(--global-color-white);
+}
+
+.homeCard:hover .icon path {
+  stroke: var(--global-color-g7);
+}
+
+@media screen and (min-width: 768px) {
+  .homeContainerCard {
+    flex-direction: row;
+    gap: var(--global-space-32);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .homeContent {
+    max-width: 800px;
+  }
+}
