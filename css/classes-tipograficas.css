@@ -23,13 +23,7 @@
   line-height: var(--line-heigth-heading-2);
 }
 
-.heading-3-kanit {
-  font-family: var(--font-family);
-  font-size: var(--font-size-heading-3);
-  line-height: var(--line-heigth-heading-3);
-}
-
-.heading-3-jetbrains {
+.heading-3 {
   font-family: var(--font-family);
   font-size: var(--font-size-heading-3);
   line-height: var(--line-heigth-heading-3);

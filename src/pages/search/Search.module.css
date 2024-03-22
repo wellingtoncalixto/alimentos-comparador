@@ -1,0 +1,55 @@
+.searchSection {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--global-space-20);
+  padding: var(--global-space-24);
+  background-color: var(--global-color-g6);
+}
+
+.searchTitle {
+  text-align: center;
+}
+
+.searchSubTitle {
+  text-align: center;
+}
+
+.searchTableTitle {
+  font-size: 130%;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--global-space-24);
+}
+
+
+
+button {
+  height: 32px;
+}
+
+table {
+  width: 100%;
+  margin: 0;
+  padding: var(--global-space-12) var(--global-space-24);
+  background-color: white;
+  font-size: 130%;
+  border: 1px solid black;
+  border-radius: 12px;
+}
+
+tr,
+th,
+td {
+  border-bottom: 1px solid black;
+}
+
+.data {
+  border-left: 1px solid black;
+  text-align: center;
+}
