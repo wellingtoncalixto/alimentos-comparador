@@ -49,8 +49,6 @@ const Search = () => {
     },
   ]);
 
-  console.log(categoria);
-
   return (
     <section className={style.searchSection}>
       <h1 className={`${style.searchTitle} display-1`}>Pesquisar</h1>
