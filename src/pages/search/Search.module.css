@@ -20,17 +20,36 @@
   font-size: 130%;
 }
 
-
-form {
+.searchForm {
   display: flex;
   flex-direction: column;
   gap: var(--global-space-24);
 }
 
+.searchSelectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.searchSelectLabel {
+  margin-bottom: var(--global-space-04);
+  margin-left: var(--global-space-04);
+}
 
-button {
+.searchFormButton {
+  border: none;
+  cursor: pointer;
   height: 32px;
+  background-color: var(--global-color-g4);
+  border-radius: var(--global-space-12);
+  color: var(--global-color-c2);
+  font-size: 120%;
+  transition: background-color 0.3s;
+}
+
+.searchFormButton:hover {
+  background-color: var(--global-color-g1);
 }
 
 table {
