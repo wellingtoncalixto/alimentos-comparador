@@ -1,0 +1,87 @@
+.comparisonSection {
+  width: 100vw;
+  min-height: 100vh;
+  max-height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: var(--global-space-20);
+  padding: var(--global-space-24);
+  background-color: var(--global-color-g6);
+}
+
+.comparisonTitle {
+  text-align: center;
+}
+
+.comparisonSubTitle {
+  text-align: center;
+}
+
+.comparisonTableTitle {
+  font-size: 130%;
+}
+
+.comparisonForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--global-space-24);
+}
+
+.comparisonSelectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.comparisonSelectLabel {
+  margin-bottom: var(--global-space-04);
+  margin-left: var(--global-space-04);
+}
+
+.comparisonFormButton {
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  background-color: var(--global-color-g4);
+  border-radius: var(--global-space-12);
+  color: var(--global-color-c2);
+  font-size: 120%;
+  transition: background-color 0.3s;
+}
+
+.comparisonFormButton:hover {
+  background-color: var(--global-color-g1);
+}
+
+.comparisonTableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--global-space-40);
+}
+
+.comparisonIcon {
+  transform: rotate(-45deg);
+}
+
+table {
+  width: 100%;
+  margin: 0;
+  padding: var(--global-space-12) var(--global-space-24);
+  background-color: white;
+  font-size: 130%;
+  border: 1px solid black;
+  border-radius: 12px;
+}
+
+tr,
+th,
+td {
+  border-bottom: 1px solid black;
+}
+
+.data {
+  border-left: 1px solid black;
+  text-align: center;
+}

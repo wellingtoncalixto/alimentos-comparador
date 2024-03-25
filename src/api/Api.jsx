@@ -113,4 +113,42 @@ async function getFoodDataById(id) {
   return { responseObject, errorResponse };
 }
 
-export default { getAllCategories, getFoodListByCategoryId, getFoodDataById };
+async function getAllFoods(id) {
+  let responseObject;
+  let errorResponse;
+  const dataQuery = {
+    query: `{
+      getAllFood {
+        id
+        name
+      }
+    }`,
+  };
+  try {
+    const response = await api.post(``, dataQuery);
+    if (response.status !== 200) throw new Error(response);
+    responseObject = response;
+  } catch (error) {
+    // error is handled in catch block
+    if (error.response) {
+      // status code out of the range of 2xx
+      console.log("Data :", error.response);
+      console.log("Status :" + error.response.status);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.log(error.request);
+    } else {
+      // Error on setting up the request
+      console.log("Error", error.message);
+    }
+    errorResponse = error;
+  }
+  return { responseObject, errorResponse };
+}
+
+export default {
+  getAllCategories,
+  getFoodListByCategoryId,
+  getFoodDataById,
+  getAllFoods,
+};
