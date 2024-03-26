@@ -3,14 +3,20 @@ import style from "./Home.module.css";
 import { NavLink } from "react-router-dom";
 import SearchSvg from "../../assets/search-icon.svg?react";
 import ComparisonSvg from "../../assets/comparison-icon.svg?react";
+import HealthyFoodSvg from "../../assets/healthy-food-bro.svg?react";
 
 const Home = () => {
   return (
     <div className={style.homeContainer}>
       <div className={style.homeContent}>
         <h1 className={`${style.homeTitle} display-1`}>
-          Bem vindo ao Comparador de Alimentos
+          Comparador de Nutrientes
         </h1>
+        <HealthyFoodSvg className={style.homeBackground} />
+        <h4 className={`${style.homeSubTitle} heading-3`}>
+          Pesquise e Compare as informações nutricionais dos alimentos para
+          alcançar seus objetivos
+        </h4>
         <div className={style.homeContainerCard}>
           <NavLink
             to="/search"

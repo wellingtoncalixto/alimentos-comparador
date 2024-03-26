@@ -1,70 +1,61 @@
 .homeContainer {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../../assets/background-home.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  max-height: max-content;
+  width: 100%;
+  padding: var(--global-space-24);
+  background-color: var(--global-color-g1);
 }
 
 .homeContent {
-  display: flex;
-  flex-direction: column;
-  height: max-content;
-  gap: var(--global-space-32);
-  background-color: var(--global-color-white);
-  padding: var(--global-space-24);
-  width: 80%;
-  border-radius: var(--global-space-12);
-  padding: var(--global-space-24);
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.75);
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .homeTitle {
   text-align: center;
-  font-size: 300%;
-  letter-spacing: 2px;
-  color: var(--global-color-black);
+}
+
+.homeSubTitle {
+  text-align: center;
+  color: var(--global-color-c3);
 }
 
 .homeContainerCard {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: var(--global-space-20);
-  width: 100%;
+  margin-top: var(--global-space-32);
 }
 
 .homeCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--global-space-20);
-  font-size: 150%;
-  font-weight: var(--font-weight-bold);
-  height: 200px;
-  max-height: 200px;
+  gap: var(--global-space-12);
+  width: 50%;
+  height: max-content;
+
   padding: var(--global-space-12) var(--global-space-24);
   background-color: var(--global-color-g7);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--global-space-12);
+
   text-decoration: none;
   color: var(--global-color-white);
-  border-radius: var(--global-space-12);
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.5s;
+  font-size: 110%;
+
+  transition: background-color 0.3s;
 }
 
 .homeCard:hover {
-  background-color: var(--global-color-g3);
-  color: var(--global-color-g7);
+  background-color: var(--global-color-g5);
+
+  color: var(--global-color-c3);
 }
 
 .icon {
-  width: var(--global-space-32);
   height: var(--global-space-32);
+  width: var(--global-space-32);
 }
 
 .icon path {
@@ -72,18 +63,86 @@
 }
 
 .homeCard:hover .icon path {
-  stroke: var(--global-color-g7);
+  stroke: var(--global-color-c3);
 }
 
 @media screen and (min-width: 768px) {
+  .homeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homeContent {
+    grid-template-areas:
+      "backgroundImg backgroundImg"
+      "title title"
+      "subTitle subTitle"
+      "buttonsContent buttonsContent";
+    grid-template-rows: repeat(4, max-content);
+    gap: var(--global-space-20);
+  }
+
+  .homeTitle {
+    grid-area: title;
+  }
+
+  .homeBackground {
+    grid-area: backgroundImg;
+    height: 50vh;
+    width: 100%;
+  }
+  .homeSubTitle {
+    grid-area: subTitle;
+    text-align: center;
+    align-self: center;
+  }
+
   .homeContainerCard {
-    flex-direction: row;
-    gap: var(--global-space-32);
+    grid-area: buttonsContent;
+  }
+
+  .homeCard {
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 992px) {
   .homeContent {
-    max-width: 800px;
+    grid-template-areas:
+      "title backgroundImg"
+      "title backgroundImg"
+      "subTitle backgroundImg"
+      "buttonsContent backgroundImg";
+    grid-template-rows: repeat(4, max-content);
+    gap: var(--global-space-20);
+  }
+
+  .homeTitle {
+    grid-area: title;
+    align-self: self-end;
+  }
+
+  .homeBackground {
+    grid-area: backgroundImg;
+    height: 90vh;
+    width: 50vw;
+  }
+  .homeSubTitle {
+    grid-area: subTitle;
+    text-align: center;
+    align-self: center;
+  }
+
+  .homeContainerCard {
+    grid-area: buttonsContent;
+    margin: 0;
+  }
+
+  .homeCard {
+    width: 100%;
+    margin: 0 auto;
+    align-self: flex-start;
   }
 }
