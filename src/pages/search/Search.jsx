@@ -1,8 +1,10 @@
 import React from "react";
 import style from "./Search.module.css";
-
+import SearchSvg from "../../assets/search.svg?react";
 import api from "../../api/Api";
 import Select from "react-select";
+import TableComponent from "../../components/table/TableComponent";
+import HeaderComponent from "../../components/header/HeaderComponent";
 const Search = () => {
   const [categoriasOptions, setCategoriasOptions] = React.useState([]);
   const [foodsOptions, setFoodsOptions] = React.useState([]);
@@ -59,105 +61,70 @@ const Search = () => {
 
   if (loading) return <h1>Carregando...</h1>;
   return (
-    <section className={style.searchSection}>
-      <h1 className={`${style.searchTitle} display-1`}>Pesquisar</h1>
-      <h2 className={`${style.searchSubTitle} heading-3`}>
-        Encontre os dados de determido alimimento
-      </h2>
-      <form className={style.searchForm} onSubmit={(e) => handleSubmit(e)}>
-        <div
-          className={`${style.searchSelectContainer} ${style.searchSelectCategoria}`}
-        >
-          <label
-            htmlFor="categoriaSelect"
-            className={`${style.searchSelectLabel} label-1`}
+    <>
+      <HeaderComponent />
+      <section className={style.searchSection}>
+        <SearchSvg className={style.searchSvg} />
+        <h2 className={`${style.searchSubTitle} heading-3`}>
+          Encontre os dados nutricionais dos alimentos para auxiliar na sua
+          dieta
+        </h2>
+        <form className={style.searchForm} onSubmit={(e) => handleSubmit(e)}>
+          <div
+            className={`${style.searchSelectContainer} ${style.searchSelectCategoria}`}
           >
-            Categorias
-          </label>
-          <Select
-            className={`${style.searchSelect} label-1`}
-            id="categoriaSelect"
-            name="categoriaSelect"
-            placeholder="Selecione uma categoria"
-            options={categoriasOptions}
-            onChange={(choice) => handleChangeCategoria(choice)}
-          />
-        </div>
-        <div
-          className={`${style.searchSelectContainer} ${style.searchSelectFood}`}
-        >
-          <label
-            htmlFor="foodSelect"
-            className={`${style.searchSelectLabel} label-1`}
-          >{`Food's`}</label>
-          <Select
-            className={`${style.searchSelect} label-1`}
-            id="foodSelect"
-            name="foodSelect"
-            options={foodsOptions}
-            placeholder="Selecione uma comida"
-            onChange={(choice) => handleChangeFood(choice)}
-            isDisabled={foodsOptions.length === 0 ? true : false}
-          />
-        </div>
-        <button
-          className={`${style.searchFormButton} cta-medium`}
-          type="submit"
-          disabled={!foodSelected ? true : false}
-        >
-          Pesquisar
-        </button>
-      </form>
-      {foodData && (
-        <>
-          <table>
-            <tr>
-              <th className={`${style.searchTableTitle} label-1`} colSpan={"2"}>
-                {foodData.name}
-              </th>
-            </tr>
-            <tr>
-              <th></th>
-              <th className={`${style.data} label-1`}>100 g</th>
-            </tr>
-            <tr>
-              <td className="label-1">Valor Energético (Kcal)</td>
-              <td className={`${style.data} label-1`}>
-                {foodData.nutrients.kcal || "0"}
-              </td>
-            </tr>
-            <tr>
-              <td className="label-1">Carboidratos (g)</td>
-              <td className={`${style.data} label-1`}>
-                {foodData.nutrients.carbohydrates || "0"}
-              </td>
-            </tr>
-            <tr>
-              <td className="label-1">Proteínas (g)</td>
-              <td className={`${style.data} label-1`}>
-                {foodData.nutrients.protein || "0"}
-              </td>
-            </tr>
-            <tr>
-              <td className="label-1">Fibras alimentares (g)</td>
-              <td className={`${style.data} label-1`}>
-                {foodData.nutrients.dietaryFiber || "0"}
-              </td>
-            </tr>
-            <tr>
-              <td className="label-1">Sódio (mg)</td>
-              <td className={`${style.data} label-1`}>
-                {foodData.nutrients.sodium || "0"}
-              </td>
-            </tr>
-          </table>
-          <p className="label-1">
-            Obs: Todos os dados são referente a quarta edição da tabela TACO
-            (Tabela Brasileira de Composição de Alimentos)
-          </p>
-        </>
-      )}
-    </section>
+            <label
+              htmlFor="categoriaSelect"
+              className={`${style.searchSelectLabel} label-1`}
+            >
+              Categorias
+            </label>
+            <Select
+              id="categoriaSelect"
+              name="categoriaSelect"
+              placeholder="Selecione uma categoria"
+              options={categoriasOptions}
+              onChange={(choice) => handleChangeCategoria(choice)}
+            />
+          </div>
+          <div
+            className={`${style.searchSelectContainer} ${style.searchSelectFood}`}
+          >
+            <label
+              htmlFor="foodSelect"
+              className={`${style.searchSelectLabel} label-1`}
+            >{`Food's`}</label>
+            <Select
+              id="foodSelect"
+              name="foodSelect"
+              options={foodsOptions}
+              placeholder="Selecione uma comida"
+              onChange={(choice) => handleChangeFood(choice)}
+              isDisabled={foodsOptions.length === 0 ? true : false}
+            />
+          </div>
+          <button
+            className={`${style.searchFormButton} cta-medium`}
+            type="submit"
+            disabled={!foodSelected ? true : false}
+          >
+            Pesquisar
+          </button>
+        </form>
+        {foodData && (
+          <>
+            <span className={style.searchDiviser}></span>
+            <div className={style.searchResultContainer}>
+              <TableComponent data={foodData} />
+              <p className={`${style.resultMessage} label-1`}>
+                Obs: Todos os dados são referente a quarta edição da tabela TACO
+                (Tabela Brasileira de Composição de Alimentos)
+              </p>
+            </div>
+          </>
+        )}
+      </section>
+    </>
   );
 };
 

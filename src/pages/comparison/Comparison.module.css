@@ -65,23 +65,3 @@
   transform: rotate(-45deg);
 }
 
-table {
-  width: 100%;
-  margin: 0;
-  padding: var(--global-space-12) var(--global-space-24);
-  background-color: white;
-  font-size: 130%;
-  border: 1px solid black;
-  border-radius: 12px;
-}
-
-tr,
-th,
-td {
-  border-bottom: 1px solid black;
-}
-
-.data {
-  border-left: 1px solid black;
-  text-align: center;
-}

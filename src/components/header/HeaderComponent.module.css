@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--global-color-g1);
+  padding: var(--global-space-12) var(--global-space-24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header nav ul {
+  display: flex;
+  gap: var(--global-space-20);
+}
