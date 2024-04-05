@@ -6,7 +6,46 @@
   justify-content: space-between;
 }
 
+.header nav {
+  width: 100%;
+}
+
 .header nav ul {
-  display: flex;
+  display: grid;
+  width: 100%;
+  align-items: center;
   gap: var(--global-space-20);
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr repeat(3, max-content);
+}
+
+.headerNavLink {
+  text-decoration: none;
+  color: var(--global-color-c2);
+  font-weight: var(--font-weight-bold);
+}
+
+.headerNavLinkStart {
+  max-width: max-content;
+  justify-self: flex-start;
+}
+
+.headerNavLinkEnd {
+  max-width: max-content;
+  justify-self: flex-end;
+}
+
+.headerNavLinkHover:hover {
+  color: var(--global-color-g7);
+}
+
+.headerTitle {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 1200px) {
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
