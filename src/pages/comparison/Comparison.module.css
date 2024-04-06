@@ -1,67 +1,171 @@
 .comparisonSection {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: calc(100vh - var(--global-space-100));
   max-height: max-content;
   display: flex;
   flex-direction: column;
   gap: var(--global-space-20);
   padding: var(--global-space-24);
-  background-color: var(--global-color-g6);
+  position: relative;
+  background-color: var(--global-color-white);
 }
 
-.comparisonTitle {
-  text-align: center;
+.comparisonSvgOption {
+  width: 100%;
+  height: 250px;
 }
 
 .comparisonSubTitle {
   text-align: center;
 }
 
-.comparisonTableTitle {
-  font-size: 130%;
-}
-
 .comparisonForm {
   display: flex;
   flex-direction: column;
-  gap: var(--global-space-24);
-}
-
-.comparisonSelectContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.comparisonSelectLabel {
-  margin-bottom: var(--global-space-04);
-  margin-left: var(--global-space-04);
+  gap: var(--global-space-20);
 }
 
 .comparisonFormButton {
-  border: none;
-  cursor: pointer;
-  height: 32px;
-  background-color: var(--global-color-g4);
+  border: 0;
+  background-color: var(--global-color-g7);
+  width: max-content;
+  height: max-content;
+  padding: var(--global-space-12) var(--global-space-24);
   border-radius: var(--global-space-12);
-  color: var(--global-color-c2);
-  font-size: 120%;
-  transition: background-color 0.3s;
+  color: var(--global-color-white);
+  margin: 0 auto;
+  font-weight: var(--font-weight-bold);
 }
 
-.comparisonFormButton:hover {
-  background-color: var(--global-color-g1);
+.comparisonFormButton:hover:not(:disabled) {
+  background-color: var(--global-color-g5);
+  color: var(--global-color-c3);
 }
 
-.comparisonTableContainer {
+.comparisonFormButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.comparisonDiviser {
+  height: 2px;
+  width: 100%;
+  background-color: var(--global-color-g6);
+}
+
+.comparisonResultContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--global-space-40);
+  gap: var(--global-space-20);
 }
 
-.comparisonIcon {
+.comparisonSvgIcon {
   transform: rotate(-45deg);
+  margin: 0 auto;
 }
 
+.comparisonSvgIcon path {
+  stroke: var(--global-color-g7);
+}
+
+.resultMessage {
+  align-self: center;
+  text-align: center;
+
+  margin-top: var(--global-space-20);
+}
+
+@media screen and (min-width: 768px) {
+  .comparisonSection {
+    display: grid;
+    grid-template-areas:
+      "img subTitle"
+      "form form"
+      "line line"
+      "result result";
+    grid-template-rows: repeat(3, max-content) 1fr;
+  }
+
+  .comparisonSubTitle {
+    grid-area: subTitle;
+    align-self: center;
+  }
+
+  .comparisonSvgOption {
+    grid-area: img;
+  }
+
+  .comparisonForm {
+    grid-area: form;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content;
+  }
+
+  .comparisonFormButton {
+    grid-column: 1/3;
+  }
+
+  .comparisonDiviser {
+    grid-area: line;
+  }
+
+  .comparisonResultContainer {
+    grid-area: result;
+    display: grid;
+    height: 100%;
+    grid-template-areas:
+      "table1 svgIcon table2"
+      "text text text";
+    grid-template-rows: repeat(2, max-content);
+    align-items: center;
+    align-content: center;
+  }
+
+  .comparisonTable1 {
+    grid-area: table1;
+  }
+
+  .comparisonTable2 {
+    grid-area: table2;
+  }
+
+  .comparisonSvgIcon {
+    grid-area: svgIcon;
+    transform: rotate(45deg);
+    height: var(--global-space-60);
+    width: var(--global-space-60);
+  }
+
+  .resultMessage {
+    grid-area: text;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .comparisonSection {
+    display: grid;
+    grid-template-areas:
+      "img img subTitle"
+      "form form form"
+      "line line line"
+      "result result result";
+  }
+
+  .comparisonSubTitle {
+    font-size: 200%;
+  }
+
+  .comparisonSvgOption {
+    grid-area: img;
+    width: 100%;
+    height: 500px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .comparisonSection {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

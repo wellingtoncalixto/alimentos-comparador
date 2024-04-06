@@ -1,5 +1,5 @@
 footer {
-  height: var(--global-space-200);
+  height: var(--global-space-100);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -7,16 +7,13 @@ footer {
   background-color: var(--global-color-g1);
   position: relative;
   bottom: 0;
+  padding: var(--global-space-12) var(--global-space-24);
 }
 
 .footerMessage {
   color: var(--global-color-c3);
   font-weight: var(--font-weight-normal);
   text-align: center;
-}
-
-.footerMessage span {
-  white-space: nowrap;
 }
 
 .boldMessage {
