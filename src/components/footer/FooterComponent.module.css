@@ -1,0 +1,25 @@
+footer {
+  height: var(--global-space-200);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--global-color-g1);
+  position: relative;
+  bottom: 0;
+}
+
+.footerMessage {
+  color: var(--global-color-c3);
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+}
+
+.footerMessage span {
+  white-space: nowrap;
+}
+
+.boldMessage {
+  color: var(--global-color-black);
+  font-weight: var(--font-weight-bold);
+}

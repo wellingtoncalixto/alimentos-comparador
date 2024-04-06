@@ -14,6 +14,22 @@ html {
   font-size: 12px;
 }
 
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--global-color-g7);
+  border-left: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  border-radius: 0.25rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #fff;
+}
+
 body {
   margin: 0px;
   text-decoration: none;

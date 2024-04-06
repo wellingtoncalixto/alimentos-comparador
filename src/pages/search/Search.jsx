@@ -5,6 +5,7 @@ import api from "../../api/Api";
 import Select from "react-select";
 import TableComponent from "../../components/table/TableComponent";
 import HeaderComponent from "../../components/header/HeaderComponent";
+import FooterComponent from "../../components/footer/FooterComponent";
 const Search = () => {
   const [categoriasOptions, setCategoriasOptions] = React.useState([]);
   const [foodsOptions, setFoodsOptions] = React.useState([]);
@@ -124,6 +125,7 @@ const Search = () => {
           </>
         )}
       </section>
+      <FooterComponent />
     </>
   );
 };

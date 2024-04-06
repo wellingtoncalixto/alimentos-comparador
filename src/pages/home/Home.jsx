@@ -7,7 +7,7 @@ import HealthyFoodSvg from "../../assets/healthy-food-bro.svg?react";
 
 const Home = () => {
   return (
-    <div className={style.homeContainer}>
+    <section className={style.homeContainer}>
       <div className={style.homeContent}>
         <h1 className={`${style.homeTitle} display-1`}>
           Comparador de Nutrientes
@@ -34,7 +34,7 @@ const Home = () => {
           </NavLink>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

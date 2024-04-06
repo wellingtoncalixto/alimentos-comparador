@@ -1,6 +1,6 @@
 .searchSection {
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   max-height: max-content;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
     grid-area: form;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr max-content;
+    grid-template-rows: max-content max-content;
   }
 
   .searchFormButton {
