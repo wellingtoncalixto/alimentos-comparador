@@ -68,7 +68,7 @@ const Search = () => {
         <SearchSvg className={style.searchSvg} />
         <h2 className={`${style.searchSubTitle} heading-3`}>
           Encontre os dados nutricionais dos alimentos para auxiliar na sua
-          dieta
+          dieta.
         </h2>
         <form className={style.searchForm} onSubmit={(e) => handleSubmit(e)}>
           <div

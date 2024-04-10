@@ -26,6 +26,7 @@
 }
 
 .comparisonFormButton {
+  cursor: pointer;
   border: 0;
   background-color: var(--global-color-g7);
   width: max-content;

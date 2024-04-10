@@ -66,6 +66,10 @@
   stroke: var(--global-color-c3);
 }
 
+.iconComparison {
+  transform: rotate(45deg);
+}
+
 @media screen and (min-width: 768px) {
   .homeContainer {
     display: flex;

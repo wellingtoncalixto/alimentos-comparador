@@ -29,7 +29,9 @@ const Home = () => {
             to="/comparison"
             className={`${style.homeCard} ${style.homeComparison}`}
           >
-            <ComparisonSvg className={style.icon} />
+            <ComparisonSvg
+              className={`${style.icon} ${style.iconComparison}`}
+            />
             <p className="cta-medium">Comparar</p>
           </NavLink>
         </div>

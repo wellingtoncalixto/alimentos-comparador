@@ -101,7 +101,7 @@ const Comparison = () => {
           <button
             className={`${style.comparisonFormButton} cta-medium`}
             type="submit"
-            disabled={!food1Selected && !food2Selected ? true : false}
+            disabled={!food1Selected || !food2Selected ? true : false}
           >
             Comparar
           </button>

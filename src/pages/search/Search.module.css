@@ -1,6 +1,6 @@
 .searchSection {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100% - var(--global-space-100));
   max-height: max-content;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,7 @@
 }
 
 .searchFormButton {
+  cursor: pointer;
   border: 0;
   background-color: var(--global-color-g7);
   width: max-content;
@@ -37,9 +38,14 @@
   font-weight: var(--font-weight-bold);
 }
 
-.searchFormButton:hover {
+.searchFormButton:hover:not(:disabled) {
   background-color: var(--global-color-g5);
   color: var(--global-color-c3);
+}
+
+.searchFormButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .searchDiviser {
@@ -105,7 +111,7 @@
   }
 
   .searchSubTitle {
-    font-size: 400%;
+    font-size: 200%;
   }
 
   .searchSvg {
