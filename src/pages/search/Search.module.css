@@ -1,6 +1,6 @@
 .searchSection {
   width: 100%;
-  min-height: calc(100% - var(--global-space-100));
+  min-height: 100vh;
   max-height: max-content;
   display: flex;
   flex-direction: column;

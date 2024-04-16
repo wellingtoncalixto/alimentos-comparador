@@ -8,6 +8,7 @@ import Select from "react-select";
 import FooterComponent from "../../components/footer/FooterComponent";
 import TableComponent from "../../components/table/TableComponent";
 import HeaderComponent from "../../components/header/HeaderComponent";
+import LoadingComponent from "../../components/loading/LoadingComponent";
 
 const Comparison = () => {
   const [foodsOptions, setFoodsOptions] = React.useState([]);
@@ -50,7 +51,7 @@ const Comparison = () => {
     setFoodData2(foodData2);
   }
 
-  if (loading) return <h1>Carregando...</h1>;
+  if (loading) return <LoadingComponent />;
   return (
     <>
       <HeaderComponent />

@@ -6,6 +6,7 @@ import Select from "react-select";
 import TableComponent from "../../components/table/TableComponent";
 import HeaderComponent from "../../components/header/HeaderComponent";
 import FooterComponent from "../../components/footer/FooterComponent";
+import LoadingComponent from "../../components/loading/LoadingComponent";
 const Search = () => {
   const [categoriasOptions, setCategoriasOptions] = React.useState([]);
   const [foodsOptions, setFoodsOptions] = React.useState([]);
@@ -60,7 +61,7 @@ const Search = () => {
     setFoodData(foodData);
   }
 
-  if (loading) return <h1>Carregando...</h1>;
+  if (loading) return <LoadingComponent />;
   return (
     <>
       <HeaderComponent />

@@ -1,0 +1,28 @@
+.loadingContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--global-color-g1);
+}
+
+.loadingIcon {
+  width: 100px;
+  height: 100px;
+  animation: fade-in-fade-out 2s infinite;
+  opacity: 1;
+}
+
+@keyframes fade-in-fade-out {
+  0% {
+    opacity: 0;
+  }
+  50%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
