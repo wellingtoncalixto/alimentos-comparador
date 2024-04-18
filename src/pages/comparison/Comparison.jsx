@@ -36,8 +36,6 @@ const Comparison = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(food1Selected);
-    console.log(food2Selected);
 
     const { responseObject: responseObject1 } = await api.getFoodDataById(
       food1Selected

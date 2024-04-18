@@ -54,7 +54,6 @@ const Search = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(foodSelected);
 
     const { responseObject } = await api.getFoodDataById(foodSelected);
     const foodData = responseObject.data.data.getFoodById;
