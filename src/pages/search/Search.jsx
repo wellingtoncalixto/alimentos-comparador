@@ -7,12 +7,14 @@ import TableComponent from "../../components/table/TableComponent";
 import HeaderComponent from "../../components/header/HeaderComponent";
 import FooterComponent from "../../components/footer/FooterComponent";
 import LoadingComponent from "../../components/loading/LoadingComponent";
+import LoadingSpinerComponent from "../../components/loadingSpiner/LoadingSpinerComponent";
 const Search = () => {
   const [categoriasOptions, setCategoriasOptions] = React.useState([]);
   const [foodsOptions, setFoodsOptions] = React.useState([]);
   const [foodSelected, setFoodSelected] = React.useState();
   const [foodData, setFoodData] = React.useState();
   const [loading, setLoading] = React.useState(true);
+  const [loadingButton, setLoadingButton] = React.useState(false);
 
   React.useEffect(() => {
     async function getAllCategories() {
@@ -55,9 +57,11 @@ const Search = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
+    setLoadingButton(true);
     const { responseObject } = await api.getFoodDataById(foodSelected);
     const foodData = responseObject.data.data.getFoodById;
     setFoodData(foodData);
+    setLoadingButton(false);
   }
 
   if (loading) return <LoadingComponent />;
@@ -107,9 +111,13 @@ const Search = () => {
           <button
             className={`${style.searchFormButton} cta-medium`}
             type="submit"
-            disabled={!foodSelected ? true : false}
+            disabled={!foodSelected || loadingButton ? true : false}
           >
-            Pesquisar
+            {loadingButton ? (
+              <LoadingSpinerComponent width={25} heigth={25} />
+            ) : (
+              "Pesquisar"
+            )}
           </button>
         </form>
         {foodData && (

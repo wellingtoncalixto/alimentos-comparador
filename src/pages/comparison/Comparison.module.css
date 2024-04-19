@@ -30,12 +30,16 @@
   border: 0;
   background-color: var(--global-color-g7);
   width: max-content;
+  min-width: 100px;
   height: max-content;
   padding: var(--global-space-12) var(--global-space-24);
   border-radius: var(--global-space-12);
   color: var(--global-color-white);
   margin: 0 auto;
   font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .comparisonFormButton:hover:not(:disabled) {

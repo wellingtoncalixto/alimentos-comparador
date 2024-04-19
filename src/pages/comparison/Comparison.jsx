@@ -9,6 +9,7 @@ import FooterComponent from "../../components/footer/FooterComponent";
 import TableComponent from "../../components/table/TableComponent";
 import HeaderComponent from "../../components/header/HeaderComponent";
 import LoadingComponent from "../../components/loading/LoadingComponent";
+import LoadingSpinerComponent from "../../components/loadingSpiner/LoadingSpinerComponent";
 
 const Comparison = () => {
   const [foodsOptions, setFoodsOptions] = React.useState([]);
@@ -17,9 +18,11 @@ const Comparison = () => {
   const [foodData1, setFoodData1] = React.useState();
   const [foodData2, setFoodData2] = React.useState();
   const [loading, setLoading] = React.useState(false);
+  const [loadingButton, setLoadingButton] = React.useState(false);
 
   React.useEffect(() => {
     async function getAllFoods() {
+      setLoading(true);
       const { responseObject } = await api.getAllFoods();
       const foods = responseObject.data.data.getAllFood;
       const map = foods.map((categoria) => {
@@ -30,12 +33,14 @@ const Comparison = () => {
       });
 
       setFoodsOptions(map);
+      setLoading(false);
     }
     getAllFoods();
   }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoadingButton(true);
 
     const { responseObject: responseObject1 } = await api.getFoodDataById(
       food1Selected
@@ -47,6 +52,7 @@ const Comparison = () => {
     const foodData2 = responseObject2.data.data.getFoodById;
     setFoodData1(foodData1);
     setFoodData2(foodData2);
+    setLoadingButton(false);
   }
 
   if (loading) return <LoadingComponent />;
@@ -57,7 +63,7 @@ const Comparison = () => {
         <OptionsSvg className={style.comparisonSvgOption} />
         <h2 className={`${style.comparisonSubTitle} heading-3`}>
           Compare os dados nutricionais de 2 alimentos para ver qual se encaixa
-          melhor na sua dieta.
+          melhor nos seus objetivos.
         </h2>
         <form
           className={style.comparisonForm}
@@ -97,12 +103,17 @@ const Comparison = () => {
               onChange={(choice) => setFood2Selected(choice.value)}
             />
           </div>
+
           <button
             className={`${style.comparisonFormButton} cta-medium`}
             type="submit"
             disabled={!food1Selected || !food2Selected ? true : false}
           >
-            Comparar
+            {loadingButton ? (
+              <LoadingSpinerComponent width={25} heigth={25} />
+            ) : (
+              "Comparar"
+            )}
           </button>
         </form>
         {foodData1 && foodData2 && (
