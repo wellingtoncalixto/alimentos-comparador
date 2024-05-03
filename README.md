@@ -11,7 +11,7 @@ Este projeto foi criado com o intuito de ser uma aplicação de fácil manuseio,
 - **CSS3**: Estilização e design responsivo para uma experiência visual agradável em dispositivos móveis e desktop.
 - **JavaScript**: Implementação de interatividade e funcionalidades dinâmicas na aplicação.
 
-## Dependencias
+## Dependências
 
 Este projeto foi feito utilizando a API da tabela TACO criada por [@raulfdm](https://github.com/raulfdm). Portanto, é necessário fazer um fork ou clone do projeto e seguir as instruções para rodar a API antes de executar a aplicação.
 
