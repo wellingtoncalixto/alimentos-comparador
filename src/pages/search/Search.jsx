@@ -8,30 +8,33 @@ import HeaderComponent from "../../components/header/HeaderComponent";
 import FooterComponent from "../../components/footer/FooterComponent";
 import LoadingComponent from "../../components/loading/LoadingComponent";
 import LoadingSpinerComponent from "../../components/loadingSpiner/LoadingSpinerComponent";
+import { useQuery } from "react-query";
+import axios from "axios";
+
 const Search = () => {
-  const [categoriasOptions, setCategoriasOptions] = React.useState([]);
   const [foodsOptions, setFoodsOptions] = React.useState([]);
   const [foodSelected, setFoodSelected] = React.useState();
   const [foodData, setFoodData] = React.useState();
-  const [loading, setLoading] = React.useState(true);
   const [loadingButton, setLoadingButton] = React.useState(false);
 
-  React.useEffect(() => {
-    async function getAllCategories() {
-      setLoading(true);
-      const { responseObject } = await api.getAllCategories();
-      const categorias = responseObject.data.data.getAllCategories;
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["getCategories"],
+    queryFn: api.getAllCategories,
+  });
+
+  function mapCategorias() {
+    if (data.responseObject) {
+      const categorias = data.responseObject.data.data.getAllCategories;
       const map = categorias.map((categoria) => {
         return {
           value: categoria.id,
           label: categoria.name,
         };
       });
-      setCategoriasOptions(map);
-      setLoading(false);
+      return map;
     }
-    getAllCategories();
-  }, []);
+    return [];
+  }
 
   async function getFoodByCategory(categoriId) {
     const { responseObject } = await api.getFoodListByCategoryId(categoriId);
@@ -50,6 +53,7 @@ const Search = () => {
   function handleChangeCategoria(choice) {
     getFoodByCategory(choice.value);
   }
+
   function handleChangeFood(choice) {
     setFoodSelected(choice.value);
   }
@@ -64,7 +68,10 @@ const Search = () => {
     setLoadingButton(false);
   }
 
-  if (loading) return <LoadingComponent />;
+  if (isLoading) return <LoadingComponent />;
+  if (error) {
+    throw new Error(error);
+  }
   return (
     <>
       <HeaderComponent />
@@ -88,7 +95,7 @@ const Search = () => {
               id="categoriaSelect"
               name="categoriaSelect"
               placeholder="Selecione uma categoria"
-              options={categoriasOptions}
+              options={mapCategorias()}
               onChange={(choice) => handleChangeCategoria(choice)}
             />
           </div>

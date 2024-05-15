@@ -11,6 +11,6 @@ export default defineConfig({
       cache: false,
       include: ["./src/**/*.js", "./src/**/*.jsx"],
     }),
-    svgr(),
+    svgr({}),
   ],
 });
